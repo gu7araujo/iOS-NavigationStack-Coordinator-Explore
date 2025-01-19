@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MenuView.swift
 //  ExploreNav
 //
 //  Created by Gustavo Araujo Santos on 1/19/25.
@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MenuView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
+            Image(systemName: "graduationcap")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Let's Explore!")
         }
         .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    MenuView()
 }
