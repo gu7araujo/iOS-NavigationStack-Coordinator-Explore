@@ -11,7 +11,7 @@ import SwiftUI
 struct ExploreNavApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainCoordinatorView()
         }
     }
 }

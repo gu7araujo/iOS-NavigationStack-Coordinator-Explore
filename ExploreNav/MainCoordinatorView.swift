@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  MainCoordinatorView.swift
 //  ExploreNav
 //
 //  Created by Gustavo Araujo Santos on 1/19/25.
@@ -7,10 +7,16 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct MainCoordinatorView: View {
+    
     var body: some View {
         TabView {
-            HomeView()
+            HomeCoordinatorView(didSendEventClosure: {
+                AnyView(
+                    Text("Event sent!")
+                        .toolbar(.hidden, for: .tabBar)
+                )
+            })
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
@@ -21,8 +27,4 @@ struct MainView: View {
                 }
         }
     }
-}
-
-#Preview {
-    MainView()
 }
