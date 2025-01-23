@@ -11,12 +11,14 @@ struct MainCoordinatorView: View {
     
     var body: some View {
         TabView {
-            HomeCoordinatorView(didSendEventClosure: {
-                AnyView(
-                    Text("Event sent!")
-                        .toolbar(.hidden, for: .tabBar)
-                )
-            })
+            HomeCoordinatorView(coordinator: HomeCoordinator()) { page in
+                switch page {
+                case .profile:
+                    startProfileCoordinator()
+                default:
+                    AnyView(EmptyView())
+                }
+            }
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
@@ -26,5 +28,12 @@ struct MainCoordinatorView: View {
                     Label("Menu", systemImage: "list.bullet")
                 }
         }
+    }
+    
+    func startProfileCoordinator() -> AnyView {
+        AnyView(
+            ProfileView()
+                .toolbar(.hidden, for: .tabBar)
+        )
     }
 }

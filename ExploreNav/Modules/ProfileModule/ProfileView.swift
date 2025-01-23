@@ -19,7 +19,3 @@ struct ProfileView: View {
         .navigationTitle("Profile View")
     }
 }
-
-#Preview {
-    ProfileView()
-}

@@ -8,15 +8,14 @@
 import SwiftUI
 
 @Observable
-class HomeCoordinator {
+class HomeCoordinator: CoordinatorProtocol {
     
-    enum Pages {
+    enum Pages: Hashable {
         case home
         case profile
     }
     
-    var path: NavigationPath = NavigationPath()
-    
-    func push(page: Pages) { path.append(page) }
+    var root: Pages? = .home
+    var path: NavigationPath = NavigationPath()   
     
 }

@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-struct HomeCoordinatorView: View {
+struct HomeCoordinatorView<Coordinator: CoordinatorProtocol>: CoordinatorViewProtocol where Coordinator.Pages == HomeCoordinator.Pages {
     
-    @State var coordinator = HomeCoordinator()
-    
-    var didSendEventClosure: () -> AnyView
+    @State var coordinator: Coordinator
+    var getPage: (_ page: Coordinator.Pages) -> AnyView
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {
@@ -26,8 +25,13 @@ struct HomeCoordinatorView: View {
                 }
             }
             .padding()
-            .navigationDestination(for: HomeCoordinator.Pages.self) { page in
-                didSendEventClosure()
+            .navigationDestination(for: Coordinator.Pages.self) { page in
+                switch page {
+                case .profile:
+                    getPage(page)
+                default:
+                    EmptyView()
+                }
             }
         }
     }
