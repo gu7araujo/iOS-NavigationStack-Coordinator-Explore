@@ -17,4 +17,13 @@ enum HomeCompositionRoot {
     static func buildHomeView(with coordinator: HomeCoordinator) -> some View {
         HomeView(viewModel: buildHomeViewModel(with: coordinator))
     }
+    
+    static func buildProductViewModel(with coordinator: HomeCoordinator) -> ProductViewModel {
+        ProductViewModel(coordinator: coordinator)
+    }
+    
+    @ViewBuilder
+    static func buildProductView(with coordinator: HomeCoordinator) -> some View {
+        ProductView(viewModel: buildProductViewModel(with: coordinator))
+    }
 }

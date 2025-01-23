@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  ProductViewModel.swift
 //  ExploreNav
 //
 //  Created by Gustavo Araujo Santos on 1/23/25.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @Observable
-class HomeViewModel {
+class ProductViewModel {
     
     private let coordinator: HomeCoordinator
     
@@ -16,11 +16,7 @@ class HomeViewModel {
         self.coordinator = coordinator
     }
     
-    func navigateToProduct() {
-        coordinator.push(page: .product)
-    }
-    
-    func navigateToProfile() {
-        coordinator.push(page: .profile)
+    func back() {
+        coordinator.pop()
     }
 }

@@ -19,6 +19,8 @@ struct HomeCoordinatorView: CoordinatorViewProtocol {
                 switch page {
                 case .profile:
                     startCoordinator?(page)
+                case .product:
+                    HomeCompositionRoot.buildProductView(with: coordinator)
                 default:
                     EmptyView()
                 }

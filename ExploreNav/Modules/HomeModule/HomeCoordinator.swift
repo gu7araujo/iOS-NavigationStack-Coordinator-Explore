@@ -12,6 +12,7 @@ class HomeCoordinator: CoordinatorProtocol {
     
     enum Pages: Hashable {
         case home
+        case product
         case profile
     }
     

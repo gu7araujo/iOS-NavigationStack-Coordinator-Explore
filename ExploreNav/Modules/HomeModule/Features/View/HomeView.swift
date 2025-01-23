@@ -22,6 +22,10 @@ struct HomeView: View {
                 .foregroundStyle(.tint)
             Text("Hello, world!")
             
+            Button("go to Product") {
+                viewModel.navigateToProduct()
+            }
+            
             Button("go to Profile") {
                 viewModel.navigateToProfile()
             }
