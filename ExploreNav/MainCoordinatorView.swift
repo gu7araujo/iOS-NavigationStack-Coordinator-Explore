@@ -11,32 +11,24 @@ struct MainCoordinatorView: View {
     
     var body: some View {
         TabView {
-            HomeCoordinatorView(coordinator: HomeCoordinator(), getPage: handleHomeCoordinatorPage)
+            HomeCoordinatorView(coordinator: HomeCoordinator(), startCoordinator: fromHomeNavigateTo)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
             
-            MenuCoordinatorView(coordinator: MenuCoordinator(), getPage: handleMenuCoordinatorPage)
+            MenuCoordinatorView(coordinator: MenuCoordinator())
                 .tabItem {
                     Label("Menu", systemImage: "list.bullet")
                 }
         }
     }
     
-    func handleHomeCoordinatorPage(_ page: HomeCoordinator.Pages) -> AnyView {
+    func fromHomeNavigateTo(_ page: HomeCoordinator.Pages) -> AnyView {
         switch page {
         case .profile:
-            return ProfileView().toAnyView()
+            let coordinator = ProfileCoordinator()
+            return ProfileCoordinatorView(coordinator: coordinator).toAnyView()
         default:
-            fatalError()
-        }
-    }
-    
-    func handleMenuCoordinatorPage(_ page: MenuCoordinator.Pages) -> AnyView {
-        switch page {
-        case .menu:
-            return AnyView(Text("Menu"))
-        @unknown default:
             fatalError()
         }
     }

@@ -7,28 +7,18 @@
 
 import SwiftUI
 
-struct HomeCoordinatorView<Coordinator: CoordinatorProtocol>: CoordinatorViewProtocol where Coordinator.Pages == HomeCoordinator.Pages {
+struct HomeCoordinatorView: CoordinatorViewProtocol {
     
-    @State var coordinator: Coordinator
-    var getPage: (_ page: Coordinator.Pages) -> AnyView
+    @State var coordinator: HomeCoordinator
+    var startCoordinator: ((_ page: Coordinator.Pages) -> AnyView)?
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {
-            VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Hello, world!")
-                
-                Button("go to Profile") {
-                    coordinator.push(page: .profile)
-                }
-            }
-            .padding()
+            HomeCompositionRoot.buildHomeView(with: coordinator)
             .navigationDestination(for: Coordinator.Pages.self) { page in
                 switch page {
                 case .profile:
-                    getPage(page)
+                    startCoordinator?(page)
                 default:
                     EmptyView()
                 }
