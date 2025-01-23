@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct MenuCoordinatorView: CoordinatorViewProtocol {
+    
+    static var label: String = "Menu"
+    static var icon: String = "list.bullet"
+    static var tag: String = "Menu"
         
     @State var coordinator: MenuCoordinator
     

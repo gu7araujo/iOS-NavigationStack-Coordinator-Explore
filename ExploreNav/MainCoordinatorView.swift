@@ -15,26 +15,21 @@ struct MainCoordinatorView: View {
     }
     
     @State var navigationPath = NavigationPath()
+    @State private var tabSelected: String = HomeCoordinatorView.tag
+    
+    private let tabs: [Tab] = [
+        Tab(coordinatorView: HomeCoordinatorView(coordinator: HomeCoordinator())),
+        Tab(coordinatorView: MenuCoordinatorView(coordinator: MenuCoordinator()))
+    ]
     
     var body: some View {
         NavigationStack(path: $navigationPath) {
-            TabView {
-                HomeCoordinatorView(coordinator: HomeCoordinator(startCoordinator: { page in
-                    switch page {
-                    case .profile:
-                        navigationPath.append(Pages.profile)
-                    default:
-                        fatalError()
-                    }
-                }))
-                    .tabItem {
-                        Label("Home", systemImage: "house")
-                    }
-                
-                MenuCoordinatorView(coordinator: MenuCoordinator())
-                    .tabItem {
-                        Label("Menu", systemImage: "list.bullet")
-                    }
+            TabView(selection: $tabSelected) {
+                ForEach(tabs, id: \.self) { tab in
+                    AnyView(tab.view())
+                        .tabItem { AnyView(tab.label()) }
+                        .tag(tab.tag)
+                }
             }
             .navigationDestination(for: Pages.self) { page in
                 switch page {

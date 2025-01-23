@@ -9,6 +9,10 @@ import SwiftUI
 
 struct HomeCoordinatorView: CoordinatorViewProtocol {
     
+    static var label: String = "Home"
+    static var icon: String = "square.and.pencil"
+    static var tag: String = "Home"
+    
     @State var coordinator: HomeCoordinator
     
     var body: some View {

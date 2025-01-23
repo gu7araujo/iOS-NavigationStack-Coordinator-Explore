@@ -9,6 +9,10 @@ import SwiftUI
 
 struct ProfileCoordinatorView: CoordinatorViewProtocol {
     
+    static var label = String()
+    static var icon = String()
+    static var tag = String()
+    
     @State var coordinator: ProfileCoordinator
     
     var body: some View {
