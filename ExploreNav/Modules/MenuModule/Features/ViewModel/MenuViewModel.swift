@@ -15,4 +15,8 @@ class MenuViewModel {
     init(coordinator: MenuCoordinator) {
         self.coordinator = coordinator
     }
+    
+    func navigateToProfile() {
+        coordinator.startCoordinator?(.profile)
+    }
 }

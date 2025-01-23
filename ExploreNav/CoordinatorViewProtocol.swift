@@ -10,5 +10,4 @@ import SwiftUI
 protocol CoordinatorViewProtocol: View {
     associatedtype Coordinator: CoordinatorProtocol
     var coordinator: Coordinator { get set }
-    var startCoordinator: ((_ page: Coordinator.Pages) -> AnyView)? { get set }
 }

@@ -21,6 +21,10 @@ struct MenuView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Let's Explore!")
+            
+            Button("go to Profile") {
+                viewModel.navigateToProfile()
+            }
         }
         .padding()
     }

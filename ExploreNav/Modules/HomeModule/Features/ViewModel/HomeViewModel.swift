@@ -21,6 +21,6 @@ class HomeViewModel {
     }
     
     func navigateToProfile() {
-        coordinator.push(page: .profile)
+        coordinator.startCoordinator?(.profile)
     }
 }

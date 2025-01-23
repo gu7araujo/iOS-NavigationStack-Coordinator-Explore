@@ -12,9 +12,11 @@ class MenuCoordinator: CoordinatorProtocol {
     
     enum Pages: Hashable {
         case menu
+        case profile
     }
     
     var root: Pages? = .menu
     var path: NavigationPath = NavigationPath()
+    var startCoordinator: ((_ page: Pages) -> Void)?
        
 }

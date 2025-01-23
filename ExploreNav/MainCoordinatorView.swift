@@ -9,27 +9,42 @@ import SwiftUI
 
 struct MainCoordinatorView: View {
     
-    var body: some View {
-        TabView {
-            HomeCoordinatorView(coordinator: HomeCoordinator(), startCoordinator: fromHomeNavigateTo)
-                .tabItem {
-                    Label("Home", systemImage: "house")
-                }
-            
-            MenuCoordinatorView(coordinator: MenuCoordinator())
-                .tabItem {
-                    Label("Menu", systemImage: "list.bullet")
-                }
-        }
+    enum Pages: Hashable {
+        case tab
+        case profile
     }
     
-    func fromHomeNavigateTo(_ page: HomeCoordinator.Pages) -> AnyView {
-        switch page {
-        case .profile:
-            let coordinator = ProfileCoordinator()
-            return ProfileCoordinatorView(coordinator: coordinator).toAnyView()
-        default:
-            fatalError()
+    @State var navigationPath = NavigationPath()
+    
+    var body: some View {
+        NavigationStack(path: $navigationPath) {
+            TabView {
+                HomeCoordinatorView(coordinator: HomeCoordinator(startCoordinator: { page in
+                    switch page {
+                    case .profile:
+                        navigationPath.append(Pages.profile)
+                    default:
+                        fatalError()
+                    }
+                }))
+                    .tabItem {
+                        Label("Home", systemImage: "house")
+                    }
+                
+                MenuCoordinatorView(coordinator: MenuCoordinator())
+                    .tabItem {
+                        Label("Menu", systemImage: "list.bullet")
+                    }
+            }
+            .navigationDestination(for: Pages.self) { page in
+                switch page {
+                case .profile:
+                    let coordinator = ProfileCoordinator()
+                    return ProfileCoordinatorView(coordinator: coordinator)
+                default:
+                    fatalError()
+                }
+            }
         }
     }
 }
