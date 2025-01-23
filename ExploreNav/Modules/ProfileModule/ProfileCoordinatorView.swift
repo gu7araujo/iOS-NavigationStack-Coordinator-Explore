@@ -7,24 +7,17 @@
 
 import SwiftUI
 
-struct ProfileCoordinatorView<Coordinator: CoordinatorProtocol>: CoordinatorViewProtocol where Coordinator.Pages == ProfileCoordinator.Pages {
+struct ProfileCoordinatorView: CoordinatorViewProtocol {
     
-    @State var coordinator: Coordinator
+    @State var coordinator: ProfileCoordinator
     var startCoordinator: ((_ page: Coordinator.Pages) -> AnyView)?
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {
-            VStack {
-                Image(systemName: "person")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Profile")
-            }
-            .padding()
-            .navigationTitle("Profile View")
-            .navigationDestination(for: Coordinator.Pages.self) { _ in
-                EmptyView()
-            }
+            ProfileCompositionRoot.buildProfileView(with: coordinator)
+//            .navigationDestination(for: Coordinator.Pages.self) { _ in
+//                EmptyView()
+//            }
         }
     }
 }

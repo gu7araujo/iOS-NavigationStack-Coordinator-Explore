@@ -7,23 +7,17 @@
 
 import SwiftUI
 
-struct MenuCoordinatorView<Coordinator: CoordinatorProtocol>: CoordinatorViewProtocol where Coordinator.Pages == MenuCoordinator.Pages {
+struct MenuCoordinatorView: CoordinatorViewProtocol {
         
-    @State var coordinator: Coordinator
+    @State var coordinator: MenuCoordinator
     var startCoordinator: ((_ page: Coordinator.Pages) -> AnyView)?
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {
-            VStack {
-                Image(systemName: "graduationcap")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Let's Explore!")
-            }
-            .padding()
-            .navigationDestination(for: Coordinator.Pages.self) { _ in
-                EmptyView()
-            }
+            MenuCompositionRoot.buildMenuView(with: coordinator)
+//            .navigationDestination(for: Coordinator.Pages.self) { _ in
+//                EmptyView()
+//            }
         }
     }
 }
