@@ -9,6 +9,15 @@ import SwiftUI
 
 enum HomeCompositionRoot {
     
+    static func buildHomeCoordinator() -> HomeCoordinator {
+        HomeCoordinator()
+    }
+    
+    @ViewBuilder
+    static func buildHomeCoordinatorView(coordinator: HomeCoordinator) -> HomeCoordinatorView {
+        HomeCoordinatorView(coordinator: coordinator)
+    }
+    
     static func buildHomeViewModel(with coordinator: HomeCoordinator) -> HomeViewModel {
         HomeViewModel(coordinator: coordinator)
     }

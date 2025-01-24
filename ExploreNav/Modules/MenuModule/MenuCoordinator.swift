@@ -17,6 +17,5 @@ class MenuCoordinator: CoordinatorProtocol {
     
     var root: Pages? = .menu
     var path: NavigationPath = NavigationPath()
-    var startCoordinator: ((_ page: Pages) -> Void)?
        
 }

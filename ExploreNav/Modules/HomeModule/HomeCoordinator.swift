@@ -18,10 +18,5 @@ class HomeCoordinator: CoordinatorProtocol {
     
     var root: Pages? = .home
     var path: NavigationPath = NavigationPath()
-    var startCoordinator: ((_ page: Pages) -> Void)?
-    
-    init(startCoordinator: ((_ page: Pages) -> Void)? = nil) {
-        self.startCoordinator = startCoordinator
-    }
     
 }

@@ -8,6 +8,15 @@
 import SwiftUI
 
 enum MenuCompositionRoot {
+    
+    static func buildMenuCoordinator() -> MenuCoordinator {
+        MenuCoordinator()
+    }
+    
+    @ViewBuilder
+    static func builMenuCoordinatorView(coordinator: MenuCoordinator) -> MenuCoordinatorView {
+        MenuCoordinatorView(coordinator: coordinator)
+    }
      
     static func buildMenuViewmodel(with coordinator: MenuCoordinator) -> MenuViewModel {
         MenuViewModel(coordinator: coordinator)

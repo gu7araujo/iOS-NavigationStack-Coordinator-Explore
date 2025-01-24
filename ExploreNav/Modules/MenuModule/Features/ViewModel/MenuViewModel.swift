@@ -17,6 +17,6 @@ class MenuViewModel {
     }
     
     func navigateToProfile() {
-        coordinator.startCoordinator?(.profile)
+        coordinator.push(page: .profile)
     }
 }

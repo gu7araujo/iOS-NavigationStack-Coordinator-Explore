@@ -9,12 +9,6 @@ import SwiftUI
 
 struct MainCoordinatorView: View {
     
-    enum Pages: Hashable {
-        case tab
-        case profile
-    }
-    
-    @State var navigationPath = NavigationPath()
     @State private var tabSelected: String = HomeCoordinatorView.tag
     
     private let tabs: [Tab] = [
@@ -23,22 +17,11 @@ struct MainCoordinatorView: View {
     ]
     
     var body: some View {
-        NavigationStack(path: $navigationPath) {
-            TabView(selection: $tabSelected) {
-                ForEach(tabs, id: \.self) { tab in
-                    AnyView(tab.view())
-                        .tabItem { AnyView(tab.label()) }
-                        .tag(tab.tag)
-                }
-            }
-            .navigationDestination(for: Pages.self) { page in
-                switch page {
-                case .profile:
-                    let coordinator = ProfileCoordinator()
-                    return ProfileCoordinatorView(coordinator: coordinator)
-                default:
-                    fatalError()
-                }
+        TabView(selection: $tabSelected) {
+            ForEach(tabs, id: \.self) { tab in
+                AnyView(tab.view())
+                    .tabItem { AnyView(tab.label()) }
+                    .tag(tab.tag)
             }
         }
     }

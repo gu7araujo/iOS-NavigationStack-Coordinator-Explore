@@ -18,6 +18,14 @@ struct MenuCoordinatorView: CoordinatorViewProtocol {
     var body: some View {
         NavigationStack(path: $coordinator.path) {
             MenuCompositionRoot.buildMenuView(with: coordinator)
+                .navigationDestination(for: MenuCoordinator.Pages.self) { page in
+                    switch page {
+                    case .profile:
+                        ProfileCompositionRoot.buildProfileView(with: ProfileCompositionRoot.buildProfileCoordinator())
+                    default:
+                        fatalError()
+                    }
+                }
         }
     }
 }

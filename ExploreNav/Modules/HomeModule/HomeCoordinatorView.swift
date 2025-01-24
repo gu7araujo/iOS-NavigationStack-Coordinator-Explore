@@ -22,6 +22,8 @@ struct HomeCoordinatorView: CoordinatorViewProtocol {
                     switch page {
                     case .product:
                         HomeCompositionRoot.buildProductView(with: coordinator)
+                    case .profile:
+                        ProfileCompositionRoot.buildProfileView(with: ProfileCompositionRoot.buildProfileCoordinator())
                     default:
                         fatalError()
                     }

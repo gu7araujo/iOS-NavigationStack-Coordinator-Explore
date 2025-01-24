@@ -16,6 +16,5 @@ class ProfileCoordinator: CoordinatorProtocol {
     
     var root: Pages? = .profile
     var path: NavigationPath = NavigationPath()
-    var startCoordinator: ((_ page: Pages) -> Void)?
     
 }

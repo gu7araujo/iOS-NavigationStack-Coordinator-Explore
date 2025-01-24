@@ -8,6 +8,15 @@
 import SwiftUI
 
 enum ProfileCompositionRoot {
+    
+    static func buildProfileCoordinator() -> ProfileCoordinator {
+        ProfileCoordinator()
+    }
+    
+    @ViewBuilder
+    static func builProfileCoordinatorView(coordinator: ProfileCoordinator) -> ProfileCoordinatorView {
+        ProfileCoordinatorView(coordinator: coordinator)
+    }
      
     static func buildProfileViewmodel(with coordinator: ProfileCoordinator) -> ProfileViewModel {
         ProfileViewModel(coordinator: coordinator)

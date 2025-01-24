@@ -12,7 +12,6 @@ protocol CoordinatorProtocol: ObservableObject {
     
     var root: Pages? { get set }
     var path: NavigationPath { get set }
-    var startCoordinator: ((_ page: Pages) -> Void)? { get set }
     
     func push(page: Pages)
     func pop()
