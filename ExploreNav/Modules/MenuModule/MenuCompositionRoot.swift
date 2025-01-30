@@ -17,6 +17,11 @@ enum MenuCompositionRoot {
     static func builMenuCoordinatorView(coordinator: MenuCoordinator) -> MenuCoordinatorView {
         MenuCoordinatorView(coordinator: coordinator)
     }
+    
+    @ViewBuilder
+    static func builMenuCoordinatorView() -> MenuCoordinatorView {
+        MenuCoordinatorView(coordinator: buildMenuCoordinator())
+    }
      
     static func buildMenuViewmodel(with coordinator: MenuCoordinator) -> MenuViewModel {
         MenuViewModel(coordinator: coordinator)

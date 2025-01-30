@@ -12,17 +12,17 @@ struct MainCoordinatorView: View {
     @State private var tabSelected: String = HomeCoordinatorView.tag
     
     private let tabs: [Tab] = [
-        Tab(coordinatorView: HomeCoordinatorView(coordinator: HomeCoordinator())),
-        Tab(coordinatorView: MenuCoordinatorView(coordinator: MenuCoordinator()))
+        Tab(coordinatorView: HomeCompositionRoot.buildHomeCoordinatorView()),
+        Tab(coordinatorView: MenuCompositionRoot.builMenuCoordinatorView())
     ]
     
     var body: some View {
-        TabView(selection: $tabSelected) {
-            ForEach(tabs, id: \.self) { tab in
-                AnyView(tab.view())
-                    .tabItem { AnyView(tab.label()) }
-                    .tag(tab.tag)
-            }
+            TabView(selection: $tabSelected) {
+                ForEach(tabs, id: \.self) { tab in
+                    AnyView(tab.view())
+                        .tabItem { AnyView(tab.label()) }
+                        .tag(tab.tag)
+                }
         }
     }
 }
