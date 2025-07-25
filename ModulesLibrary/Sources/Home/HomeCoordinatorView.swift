@@ -6,16 +6,17 @@
 //
 
 import SwiftUI
+import Shared
 
-struct HomeCoordinatorView: CoordinatorViewProtocol {
+public struct HomeCoordinatorView: CoordinatorViewProtocol {
     
-    static var label: String = "Home"
-    static var icon: String = "square.and.pencil"
-    static var tag: String = "Home"
-    
-    @State var coordinator: HomeCoordinator
-    
-    var body: some View {
+    public static var label: String = "Home"
+    public static var icon: String = "square.and.pencil"
+    public static var tag: String = "Home"
+
+    @State public var coordinator: HomeCoordinator
+
+    public var body: some View {
         NavigationStack(path: $coordinator.path) {
             HomeCompositionRoot.buildHomeView(with: coordinator)
                 .navigationDestination(for: HomeCoordinator.Pages.self) { page in
@@ -23,7 +24,8 @@ struct HomeCoordinatorView: CoordinatorViewProtocol {
                     case .product:
                         HomeCompositionRoot.buildProductView(with: coordinator)
                     case .profile:
-                        ProfileCompositionRoot.buildProfileView(with: ProfileCompositionRoot.buildProfileCoordinator())
+                        EmptyView()
+//                        ProfileCompositionRoot.buildProfileView(with: ProfileCompositionRoot.buildProfileCoordinator())
                     default:
                         fatalError()
                     }

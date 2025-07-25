@@ -8,7 +8,7 @@
 import SwiftUI
 
 @Observable
-class MenuViewModel {
+public class MenuViewModel {
     
     private let coordinator: MenuCoordinator
     

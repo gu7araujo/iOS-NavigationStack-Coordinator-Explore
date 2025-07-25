@@ -8,7 +8,7 @@
 import SwiftUI
 
 @Observable
-class ProductViewModel {
+public class ProductViewModel {
     
     private let coordinator: HomeCoordinator
     

@@ -6,7 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B72248D82E33CD9300C241FF /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = B72248D72E33CD9300C241FF /* Home */; };
+		B72248DA2E33CD9300C241FF /* Menu in Frameworks */ = {isa = PBXBuildFile; productRef = B72248D92E33CD9300C241FF /* Menu */; };
+		B72248DC2E33CD9300C241FF /* Profile in Frameworks */ = {isa = PBXBuildFile; productRef = B72248DB2E33CD9300C241FF /* Profile */; };
+		B72248DE2E33CD9300C241FF /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = B72248DD2E33CD9300C241FF /* Shared */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		B749BE192E329D800001C63C /* ModulesLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ModulesLibrary; sourceTree = "<group>"; };
 		B765579D2D3D4ADB00D4EFCE /* ExploreNav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExploreNav.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -23,6 +31,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B72248DC2E33CD9300C241FF /* Profile in Frameworks */,
+				B72248DE2E33CD9300C241FF /* Shared in Frameworks */,
+				B72248D82E33CD9300C241FF /* Home in Frameworks */,
+				B72248DA2E33CD9300C241FF /* Menu in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +44,7 @@
 		B76557942D3D4ADB00D4EFCE = {
 			isa = PBXGroup;
 			children = (
+				B749BE192E329D800001C63C /* ModulesLibrary */,
 				B765579F2D3D4ADB00D4EFCE /* ExploreNav */,
 				B765579E2D3D4ADB00D4EFCE /* Products */,
 			);
@@ -65,6 +78,10 @@
 			);
 			name = ExploreNav;
 			packageProductDependencies = (
+				B72248D72E33CD9300C241FF /* Home */,
+				B72248D92E33CD9300C241FF /* Menu */,
+				B72248DB2E33CD9300C241FF /* Profile */,
+				B72248DD2E33CD9300C241FF /* Shared */,
 			);
 			productName = ExploreNav;
 			productReference = B765579D2D3D4ADB00D4EFCE /* ExploreNav.app */;
@@ -94,6 +111,9 @@
 			);
 			mainGroup = B76557942D3D4ADB00D4EFCE;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B72248D62E33CD9300C241FF /* XCLocalSwiftPackageReference "ModulesLibrary" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B765579E2D3D4ADB00D4EFCE /* Products */;
 			projectDirPath = "";
@@ -326,6 +346,32 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		B72248D62E33CD9300C241FF /* XCLocalSwiftPackageReference "ModulesLibrary" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ModulesLibrary;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B72248D72E33CD9300C241FF /* Home */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Home;
+		};
+		B72248D92E33CD9300C241FF /* Menu */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Menu;
+		};
+		B72248DB2E33CD9300C241FF /* Profile */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Profile;
+		};
+		B72248DD2E33CD9300C241FF /* Shared */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Shared;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B76557952D3D4ADB00D4EFCE /* Project object */;
 }

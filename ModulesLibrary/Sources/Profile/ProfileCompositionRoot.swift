@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 enum ProfileCompositionRoot {
     
     static func buildProfileCoordinator() -> ProfileCoordinator {

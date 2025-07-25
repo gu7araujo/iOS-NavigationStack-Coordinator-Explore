@@ -6,17 +6,17 @@
 //
 
 import SwiftUI
+import Shared
 
 @Observable
-class HomeCoordinator: CoordinatorProtocol {
-    
-    enum Pages: Hashable {
+public class HomeCoordinator: CoordinatorProtocol {
+
+    public enum Pages: Hashable {
         case home
         case product
         case profile
     }
     
-    var root: Pages? = .home
-    var path: NavigationPath = NavigationPath()
-    
+    public var root: Pages? = .home
+    public var path: NavigationPath = NavigationPath()
 }

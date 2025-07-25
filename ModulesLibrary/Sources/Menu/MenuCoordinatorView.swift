@@ -6,22 +6,24 @@
 //
 
 import SwiftUI
+import Shared
 
-struct MenuCoordinatorView: CoordinatorViewProtocol {
-    
-    static var label: String = "Menu"
-    static var icon: String = "list.bullet"
-    static var tag: String = "Menu"
-        
-    @State var coordinator: MenuCoordinator
-    
-    var body: some View {
+public struct MenuCoordinatorView: CoordinatorViewProtocol {
+
+    public static var label: String = "Menu"
+    public static var icon: String = "list.bullet"
+    public static var tag: String = "Menu"
+
+    @State public var coordinator: MenuCoordinator
+
+    public var body: some View {
         NavigationStack(path: $coordinator.path) {
             MenuCompositionRoot.buildMenuView(with: coordinator)
                 .navigationDestination(for: MenuCoordinator.Pages.self) { page in
                     switch page {
                     case .profile:
-                        ProfileCompositionRoot.buildProfileView(with: ProfileCompositionRoot.buildProfileCoordinator())
+                        EmptyView()
+//                        ProfileCompositionRoot.buildProfileView(with: ProfileCompositionRoot.buildProfileCoordinator())
                     default:
                         fatalError()
                     }

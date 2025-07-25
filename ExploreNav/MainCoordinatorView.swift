@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import Shared
+import Home
+import Menu
 
 struct MainCoordinatorView: View {
     
     @State private var tabSelected: String = HomeCoordinatorView.tag
     
-    private let tabs: [Tab] = [
-        Tab(coordinatorView: HomeCompositionRoot.buildHomeCoordinatorView()),
-        Tab(coordinatorView: MenuCompositionRoot.builMenuCoordinatorView())
+    private let tabs: [Shared.Tab] = [
+        Shared.Tab(coordinatorView: HomeCompositionRoot.buildHomeCoordinatorView()),
+        Shared.Tab(coordinatorView: MenuCompositionRoot.builMenuCoordinatorView())
     ]
     
     var body: some View {
