@@ -9,10 +9,4 @@ import SwiftUI
 
 @Observable
 class ProfileViewModel {
-    
-    private let coordinator: ProfileCoordinator
-    
-    init(coordinator: ProfileCoordinator) {
-        self.coordinator = coordinator
-    }
 }

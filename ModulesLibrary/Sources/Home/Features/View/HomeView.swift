@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Shared
 
 struct HomeView: View {
     
     @State var viewModel: HomeViewModel
-    
+    @Environment(Coordinator<HomeRoutes>.self) private var coordinator
+
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
     }
@@ -23,11 +25,11 @@ struct HomeView: View {
             Text("Hello, world!")
             
             Button("go to Product") {
-                viewModel.navigateToProduct()
+                coordinator.push(.product, type: .sheet)
             }
             
             Button("go to Profile") {
-                viewModel.navigateToProfile()
+                coordinator.push(.product, type: .sheet)
             }
         }
         .padding()

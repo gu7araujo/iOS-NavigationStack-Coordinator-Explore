@@ -9,22 +9,12 @@ import SwiftUI
 
 @MainActor
 enum ProfileCompositionRoot {
-    
-    static func buildProfileCoordinator() -> ProfileCoordinator {
-        ProfileCoordinator()
+    static func buildProfileViewmodel() -> ProfileViewModel {
+        ProfileViewModel()
     }
     
     @ViewBuilder
-    static func builProfileCoordinatorView(coordinator: ProfileCoordinator) -> ProfileCoordinatorView {
-        ProfileCoordinatorView(coordinator: coordinator)
-    }
-     
-    static func buildProfileViewmodel(with coordinator: ProfileCoordinator) -> ProfileViewModel {
-        ProfileViewModel(coordinator: coordinator)
-    }
-    
-    @ViewBuilder
-    static func buildProfileView(with coordinator: ProfileCoordinator) -> some View {
-        ProfileView(viewModel: buildProfileViewmodel(with: coordinator))
+    static func buildProfileView() -> some View {
+        ProfileView(viewModel: buildProfileViewmodel())
     }
 }

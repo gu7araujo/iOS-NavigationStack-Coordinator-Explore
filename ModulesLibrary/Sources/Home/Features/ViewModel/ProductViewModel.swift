@@ -8,15 +8,6 @@
 import SwiftUI
 
 @Observable
-public class ProductViewModel {
-    
-    private let coordinator: HomeCoordinator
-    
-    init(coordinator: HomeCoordinator) {
-        self.coordinator = coordinator
-    }
-    
-    func back() {
-        coordinator.pop()
-    }
+class ProductViewModel {
+
 }

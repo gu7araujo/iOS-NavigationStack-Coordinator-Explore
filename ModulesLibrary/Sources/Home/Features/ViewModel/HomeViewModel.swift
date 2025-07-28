@@ -6,21 +6,9 @@
 //
 
 import SwiftUI
+import Shared
 
 @Observable
-public class HomeViewModel {
-    
-    private let coordinator: HomeCoordinator
-    
-    init(coordinator: HomeCoordinator) {
-        self.coordinator = coordinator
-    }
-    
-    func navigateToProduct() {
-        coordinator.push(page: .product)
-    }
-    
-    func navigateToProfile() {
-        coordinator.push(page: .profile)
-    }
+class HomeViewModel {
+
 }

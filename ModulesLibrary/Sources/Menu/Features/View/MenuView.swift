@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Shared
 
 struct MenuView: View {
     
     @State var viewModel: MenuViewModel
-    
+    @Environment(Coordinator<MenuRoutes>.self) private var coordinator
+
     init(viewModel: MenuViewModel) {
         self.viewModel = viewModel
     }
@@ -23,7 +25,7 @@ struct MenuView: View {
             Text("Let's Explore!")
             
             Button("go to Profile") {
-                viewModel.navigateToProfile()
+//                viewModel.navigateToProfile()
             }
         }
         .padding()

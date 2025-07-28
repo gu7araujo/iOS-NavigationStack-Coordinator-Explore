@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Shared
 
 struct ProductView: View {
     
     @State var viewModel: ProductViewModel
-    
+    @Environment(Coordinator<HomeRoutes>.self) private var coordinator
+
     init(viewModel: ProductViewModel) {
         self.viewModel = viewModel
     }
@@ -23,7 +25,7 @@ struct ProductView: View {
             Text("Product")
             
             Button("back") {
-                viewModel.back()
+                coordinator.pop()
             }
         }
         .padding()

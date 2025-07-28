@@ -9,14 +9,5 @@ import SwiftUI
 
 @Observable
 public class MenuViewModel {
-    
-    private let coordinator: MenuCoordinator
-    
-    init(coordinator: MenuCoordinator) {
-        self.coordinator = coordinator
-    }
-    
-    func navigateToProfile() {
-        coordinator.push(page: .profile)
-    }
+
 }
