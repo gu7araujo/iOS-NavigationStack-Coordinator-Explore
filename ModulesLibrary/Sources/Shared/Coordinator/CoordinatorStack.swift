@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct CoordinatorStack<Route: Routable>: View {
+public struct CoordinatorStack<Route: RoutableProtocol>: View {
     let root: Route
     @State private var coordinator = Coordinator<Route>()
 
@@ -20,7 +20,7 @@ public struct CoordinatorStack<Route: Routable>: View {
             root
                 .navigationDestination(for: Route.self) { $0 }
                 .sheet(item: $coordinator.sheet) { $0 }
-                .fullScreenCover(item: $coordinator.fullscreenCover) { $0 }
+                .fullScreenCover(item: $coordinator.fullScreenCover) { $0 }
         }
         .environment(coordinator)
     }

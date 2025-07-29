@@ -8,18 +8,18 @@
 import SwiftUI
 import Shared
 
-public enum MenuRoutes: Routable {
+public enum MenuRoutes: RoutableProtocol {
     nonisolated public var id: Self { self }
 
     case root
-//    case product
+    case profile
 
     public var body: some View {
         switch self {
         case .root:
             MenuCompositionRoot.buildMenuView()
-//        case .product:
-//            HomeCompositionRoot.buildProductView()
+        case .profile:
+            SharedCompositionRoot.buildProfileView(for: MenuRoutes.self)
         }
     }
 }

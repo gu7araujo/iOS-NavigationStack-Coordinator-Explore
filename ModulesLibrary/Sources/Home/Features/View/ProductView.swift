@@ -23,7 +23,7 @@ struct ProductView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Product")
-            
+
             Button("back") {
                 coordinator.pop()
             }

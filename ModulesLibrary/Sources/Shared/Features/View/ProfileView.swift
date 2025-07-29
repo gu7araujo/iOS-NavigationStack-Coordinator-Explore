@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct ProfileView: View {
-    
+struct ProfileView<Route: RoutableProtocol>: View {
+
     @State var viewModel: ProfileViewModel
-    
+    @Environment(Coordinator<Route>.self) private var coordinator
+
     init(viewModel: ProfileViewModel) {
         self.viewModel = viewModel
     }
@@ -21,6 +22,14 @@ struct ProfileView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Profile")
+
+            Button("go to next screen") {
+                // limitação: não conseguir navegar para outra tela de forma abstrata (sem conhecer o RoutableProtocol específico)
+            }
+
+            Button("back") {
+                coordinator.pop()
+            }
         }
         .padding()
         .navigationTitle("Profile View")

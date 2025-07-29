@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B72248D82E33CD9300C241FF /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = B72248D72E33CD9300C241FF /* Home */; };
 		B72248DA2E33CD9300C241FF /* Menu in Frameworks */ = {isa = PBXBuildFile; productRef = B72248D92E33CD9300C241FF /* Menu */; };
-		B72248DC2E33CD9300C241FF /* Profile in Frameworks */ = {isa = PBXBuildFile; productRef = B72248DB2E33CD9300C241FF /* Profile */; };
 		B72248DE2E33CD9300C241FF /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = B72248DD2E33CD9300C241FF /* Shared */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +30,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B72248DC2E33CD9300C241FF /* Profile in Frameworks */,
 				B72248DE2E33CD9300C241FF /* Shared in Frameworks */,
 				B72248D82E33CD9300C241FF /* Home in Frameworks */,
 				B72248DA2E33CD9300C241FF /* Menu in Frameworks */,
@@ -80,7 +78,6 @@
 			packageProductDependencies = (
 				B72248D72E33CD9300C241FF /* Home */,
 				B72248D92E33CD9300C241FF /* Menu */,
-				B72248DB2E33CD9300C241FF /* Profile */,
 				B72248DD2E33CD9300C241FF /* Shared */,
 			);
 			productName = ExploreNav;
@@ -362,10 +359,6 @@
 		B72248D92E33CD9300C241FF /* Menu */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Menu;
-		};
-		B72248DB2E33CD9300C241FF /* Profile */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Profile;
 		};
 		B72248DD2E33CD9300C241FF /* Shared */ = {
 			isa = XCSwiftPackageProductDependency;

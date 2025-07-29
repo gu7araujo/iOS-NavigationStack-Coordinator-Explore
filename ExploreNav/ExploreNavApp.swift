@@ -12,7 +12,9 @@ import Menu
 
 @main
 struct ExploreNavApp: App {
+
     @State private var selectedTab = 0
+    @State private var isPresentDebugView: Bool = false
 
     var body: some Scene {
         WindowGroup {
@@ -33,6 +35,15 @@ struct ExploreNavApp: App {
                     }
                     .tag(1)
             }
+            .onReceive(NotificationCenter.default.publisher(for: UIDevice.changeTabNotification)) { _ in
+                selectedTab = 1
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIDevice.deviceDidShakeNotification)) { _ in
+                isPresentDebugView.toggle()
+            }
+            .debugSheet(isPresented: $isPresentDebugView, onDismiss: { // limitação: sheet sobre sheet
+                isPresentDebugView = false
+            })
 
         }
     }

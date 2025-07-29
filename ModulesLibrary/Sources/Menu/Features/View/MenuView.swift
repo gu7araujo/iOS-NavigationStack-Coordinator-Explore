@@ -25,7 +25,7 @@ struct MenuView: View {
             Text("Let's Explore!")
             
             Button("go to Profile") {
-//                viewModel.navigateToProfile()
+                coordinator.push(.profile, type: .sheet)
             }
         }
         .padding()

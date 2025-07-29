@@ -8,11 +8,12 @@
 import SwiftUI
 import Shared
 
-public enum HomeRoutes: Routable {
+public enum HomeRoutes: RoutableProtocol {
     nonisolated public var id: Self { self }
 
     case root
     case product
+    case profile
 
     public var body: some View {
         switch self {
@@ -20,6 +21,8 @@ public enum HomeRoutes: Routable {
             HomeCompositionRoot.buildHomeView()
         case .product:
             HomeCompositionRoot.buildProductView()
+        case .profile:
+            SharedCompositionRoot.buildProfileView(for: HomeRoutes.self)
         }
     }
 }

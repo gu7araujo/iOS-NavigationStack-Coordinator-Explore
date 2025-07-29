@@ -8,11 +8,11 @@
 import SwiftUI
 
 @Observable
-public class Coordinator<Route: Routable> {
+public class Coordinator<Route: RoutableProtocol> {
 
     var path: NavigationPath = NavigationPath()
     var sheet: Route?
-    var fullscreenCover: Route?
+    var fullScreenCover: Route?
 
     public enum NavigationType {
         case push
@@ -33,18 +33,25 @@ public class Coordinator<Route: Routable> {
         case .sheet:
             sheet = page
         case .fullScreenCover:
-            fullscreenCover = page
+            fullScreenCover = page
         }
     }
 
-    public func pop(_ type: NavigationPopType = .push(last: 1)) {
-        switch type {
-        case .push(let last):
-            path.removeLast(last)
-        case .sheet:
+    public func pop(_ quantity: Int? = nil) {
+        if sheet != nil {
             sheet = nil
-        case .fullScreenCover:
-            fullscreenCover = nil
+        } else if fullScreenCover != nil {
+            fullScreenCover = nil
+        } else {
+            guard !path.isEmpty else { return }
+
+            if let quantity, quantity > path.count {
+                reset()
+            } else if let quantity, quantity < path.count { // limitação: não conseguir remover uma tela do meio
+                path.removeLast(quantity)
+            } else {
+                path.removeLast()
+            }
         }
     }
 

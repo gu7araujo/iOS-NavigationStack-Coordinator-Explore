@@ -24,12 +24,17 @@ struct HomeView: View {
                 .foregroundStyle(.tint)
             Text("Hello, world!")
             
-            Button("go to Product") {
-                coordinator.push(.product, type: .sheet)
+            Button("go to Product (push)") {
+                coordinator.push(.product)
             }
-            
-            Button("go to Profile") {
-                coordinator.push(.product, type: .sheet)
+            Button("go to Profile (sheet)") {
+                coordinator.push(.profile, type: .sheet)
+            }
+            Button("go to Profile (fullScreenCover)") {
+                coordinator.push(.profile, type: .fullScreenCover)
+            }
+            Button("change tab") {
+                NotificationCenter.default.post(name: UIDevice.changeTabNotification, object: nil)
             }
         }
         .padding()
