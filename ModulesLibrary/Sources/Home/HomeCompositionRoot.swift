@@ -8,20 +8,43 @@
 import SwiftUI
 
 @MainActor
-enum HomeCompositionRoot {
-    static func buildHomeViewModel() -> HomeViewModel {
-        HomeViewModel()
+public enum HomeCompositionRoot {
+
+    // MARK: - Private
+
+    private static func buildHomeViewModel(with coordinator: HomeCoordinator) -> HomeViewModel {
+        HomeViewModel(coordinator)
     }
 
-    static func buildHomeView() -> some View {
-        HomeView(viewModel: buildHomeViewModel())
-    }
-    
-    static func buildProductViewModel() -> ProductViewModel {
-        ProductViewModel()
+    static func buildProductViewModel(with coordinator: HomeCoordinator) -> ProductViewModel {
+        ProductViewModel(coordinator)
     }
 
-    static func buildProductView() -> some View {
-        ProductView(viewModel: buildProductViewModel())
+    // MARK: - Internal
+
+    static func buildHomeView(with coordinator: HomeCoordinator) -> some View {
+        HomeView(viewModel: buildHomeViewModel(with: coordinator))
+    }
+
+    static func buildProductView(with coordinator: HomeCoordinator) -> some View {
+        ProductView(viewModel: buildProductViewModel(with: coordinator))
+    }
+
+    @ViewBuilder
+    static func build(_ page: HomeCoordinator.Pages?, with coordinator: HomeCoordinator) -> some View {
+        switch page {
+        case .home:
+            buildHomeView(with: coordinator)
+        case .product:
+            buildProductView(with: coordinator)
+        default:
+            fatalError()
+        }
+    }
+
+    // MARK: - Public
+
+    public static func buildHomeCoordinatorView() -> some View {
+        HomeCoordinatorView()
     }
 }

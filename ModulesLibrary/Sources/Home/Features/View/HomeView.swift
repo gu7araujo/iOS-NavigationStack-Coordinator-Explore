@@ -11,7 +11,6 @@ import Shared
 struct HomeView: View {
     
     @State var viewModel: HomeViewModel
-    @Environment(Coordinator<HomeRoutes>.self) private var coordinator
 
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
@@ -19,24 +18,18 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-            
-            Button("go to Product (push)") {
-                coordinator.push(.product)
-            }
-            Button("go to Profile (sheet)") {
-                coordinator.push(.profile, type: .sheet)
-            }
-            Button("go to Profile (fullScreenCover)") {
-                coordinator.push(.profile, type: .fullScreenCover)
-            }
+            Text("Home Screen!")
+                .padding()
+
+            Button("go to Product (push)", action: viewModel.goToProduct)
+
+            Button("go to Settings (sheet)", action: viewModel.goToSettingsSheet)
+
+            Button("go to Settings (fullScreenCover)", action: viewModel.goToSettingsCover)
+
             Button("change tab") {
                 NotificationCenter.default.post(name: UIDevice.changeTabNotification, object: nil)
             }
         }
-        .padding()
     }
 }

@@ -11,7 +11,6 @@ import Shared
 struct ProductView: View {
     
     @State var viewModel: ProductViewModel
-    @Environment(Coordinator<HomeRoutes>.self) private var coordinator
 
     init(viewModel: ProductViewModel) {
         self.viewModel = viewModel
@@ -19,15 +18,11 @@ struct ProductView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "car.circle")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Product")
+            Text("Product Screen!")
+                .padding()
 
-            Button("back") {
-                coordinator.pop()
-            }
+            Button("go to Settings (push)", action: viewModel.goToSettings)
+            Button("back", action: viewModel.goBack)
         }
-        .padding()
     }
 }

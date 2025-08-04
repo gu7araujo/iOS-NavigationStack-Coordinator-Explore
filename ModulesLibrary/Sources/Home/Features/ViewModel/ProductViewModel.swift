@@ -10,4 +10,17 @@ import SwiftUI
 @Observable
 class ProductViewModel {
 
+    private let coordinator: HomeCoordinator
+
+    init(_ coordinator: HomeCoordinator) {
+        self.coordinator = coordinator
+    }
+
+    func goToSettings() {
+        coordinator.navigateToSettings()
+    }
+
+    func goBack() {
+        coordinator.pop()
+    }
 }

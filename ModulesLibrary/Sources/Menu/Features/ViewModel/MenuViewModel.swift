@@ -8,6 +8,19 @@
 import SwiftUI
 
 @Observable
-public class MenuViewModel {
+class MenuViewModel {
 
+    private let coordinator: MenuCoordinator
+
+    init(_ coordinator: MenuCoordinator) {
+        self.coordinator = coordinator
+    }
+
+    func goToProfile() {
+        coordinator.navigateToProfile()
+    }
+
+    func goToScreen2() {
+        coordinator.push(page: .menuScreen2)
+    }
 }

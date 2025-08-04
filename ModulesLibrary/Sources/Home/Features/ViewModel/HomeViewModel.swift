@@ -8,7 +8,24 @@
 import SwiftUI
 import Shared
 
-@Observable
+@Observable @MainActor
 class HomeViewModel {
 
+    private let coordinator: HomeCoordinator
+
+    init(_ coordinator: HomeCoordinator) {
+        self.coordinator = coordinator
+    }
+
+    func goToProduct() {
+        coordinator.push(page: .product)
+    }
+
+    func goToSettingsSheet() {
+        coordinator.presentSettingsSheet()
+    }
+
+    func goToSettingsCover() {
+        coordinator.presentSettingsCover()
+    }
 }

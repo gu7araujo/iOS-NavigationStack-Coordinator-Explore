@@ -20,7 +20,7 @@ struct ExploreNavApp: App {
         WindowGroup {
 
             TabView(selection: $selectedTab) {
-                CoordinatorStack(root: HomeRoutes.root)
+                HomeCompositionRoot.buildHomeCoordinatorView()
                     .tabItem {
                         Image(systemName: "house")
                         Text("Home")
@@ -28,7 +28,7 @@ struct ExploreNavApp: App {
                     .tag(0)
 
 
-                CoordinatorStack(root: MenuRoutes.root)
+                MenuCompositionRoot.buildMenuCoordinatorView()
                     .tabItem {
                         Image(systemName: "person")
                         Text("Menu")
@@ -44,7 +44,6 @@ struct ExploreNavApp: App {
             .debugSheet(isPresented: $isPresentDebugView, onDismiss: { // limitação: sheet sobre sheet
                 isPresentDebugView = false
             })
-
         }
     }
 }
