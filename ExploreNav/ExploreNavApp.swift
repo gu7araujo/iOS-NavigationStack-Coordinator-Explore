@@ -16,9 +16,30 @@ struct ExploreNavApp: App {
     @State private var selectedTab = 0
     @State private var isPresentDebugView: Bool = false
 
+    init() {
+        let appearance = UITabBarAppearance()
+
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.systemBlue
+
+        appearance.stackedLayoutAppearance.selected.iconColor = UIColor.white
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont.boldSystemFont(ofSize: 12)
+        ]
+
+        appearance.stackedLayoutAppearance.normal.iconColor = UIColor.lightText
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [
+            .foregroundColor: UIColor.lightText,
+            .font: UIFont.systemFont(ofSize: 10)
+        ]
+
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
+    }
+
     var body: some Scene {
         WindowGroup {
-
             TabView(selection: $selectedTab) {
                 HomeCompositionRoot.buildHomeCoordinatorView()
                     .tabItem {
