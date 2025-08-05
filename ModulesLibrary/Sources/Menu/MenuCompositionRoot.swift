@@ -30,6 +30,10 @@ public enum MenuCompositionRoot {
         MenuScreen2View(viewModel: buildMenuScreen2Viewmodel(with: coordinator))
     }
 
+    static func buildMenuScreen3View() -> some View {
+        MenuScreen3View()
+    }
+
     @ViewBuilder
     static func build(_ page: MenuCoordinator.Pages?, with coordinator: MenuCoordinator) -> some View {
         switch page {
@@ -37,6 +41,8 @@ public enum MenuCompositionRoot {
             buildMenuView(with: coordinator)
         case .menuScreen2:
             buildMenuScreen2View(with: coordinator)
+        case .menuScreen3:
+            buildMenuScreen3View()
         default:
             fatalError()
         }

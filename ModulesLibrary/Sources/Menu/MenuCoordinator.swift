@@ -14,6 +14,7 @@ class MenuCoordinator: CoordinatorProtocol {
     enum Pages: Hashable, Identifiable {
         case menu
         case menuScreen2
+        case menuScreen3
 
         public var id: Self { self }
     }

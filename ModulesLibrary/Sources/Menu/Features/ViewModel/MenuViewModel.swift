@@ -23,4 +23,8 @@ class MenuViewModel {
     func goToScreen2() {
         coordinator.push(page: .menuScreen2)
     }
+
+    func goToScreen3() {
+        coordinator.push(page: .menuScreen3)
+    }
 }
