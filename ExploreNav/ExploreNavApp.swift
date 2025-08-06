@@ -62,7 +62,7 @@ struct ExploreNavApp: App {
             .onReceive(NotificationCenter.default.publisher(for: UIDevice.deviceDidShakeNotification)) { _ in
                 isPresentDebugView.toggle()
             }
-            .debugSheet(isPresented: $isPresentDebugView, onDismiss: { // limitação: sheet sobre sheet
+            .debugSheet(isPresented: $isPresentDebugView, onDismiss: { // limitação: sheet global em cima de outras sheet
                 isPresentDebugView = false
             })
         }
