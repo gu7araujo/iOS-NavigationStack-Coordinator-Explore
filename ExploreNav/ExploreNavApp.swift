@@ -40,27 +40,29 @@ struct ExploreNavApp: App {
 
     var body: some Scene {
         WindowGroup {
-            TabView(selection: $selectedTab) {
-                HomeCompositionRoot.buildHomeCoordinatorView()
-                    .tabItem {
-                        Image(systemName: "house")
-                        Text("Home")
-                    }
-                    .tag(0)
+            VStack {
+                TabView(selection: $selectedTab) {
+                    HomeCompositionRoot.buildHomeCoordinatorView()
+                        .tabItem {
+                            Image(systemName: "house")
+                            Text("Home")
+                        }
+                        .tag(0)
 
 
-                MenuCompositionRoot.buildMenuCoordinatorView()
-                    .tabItem {
-                        Image(systemName: "person")
-                        Text("Menu")
-                    }
-                    .tag(1)
-            }
-            .onReceive(NotificationCenter.default.publisher(for: UIDevice.changeTabNotification)) { _ in
-                selectedTab = 1
-            }
-            .onReceive(NotificationCenter.default.publisher(for: UIDevice.deviceDidShakeNotification)) { _ in
-                isPresentDebugView.toggle()
+                    MenuCompositionRoot.buildMenuCoordinatorView()
+                        .tabItem {
+                            Image(systemName: "person")
+                            Text("Menu")
+                        }
+                        .tag(1)
+                }
+                .onReceive(NotificationCenter.default.publisher(for: UIDevice.changeTabNotification)) { _ in
+                    selectedTab = 1
+                }
+                .onReceive(NotificationCenter.default.publisher(for: UIDevice.deviceDidShakeNotification)) { _ in
+                    isPresentDebugView.toggle()
+                }
             }
             .debugSheet(isPresented: $isPresentDebugView, onDismiss: { // limitação: sheet global em cima de outras sheet
                 isPresentDebugView = false

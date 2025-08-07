@@ -24,7 +24,7 @@ struct MenuView: View {
 
             Button("go to Profile", action: viewModel.goToProfile)
             Button("go to Screen 2", action: viewModel.goToScreen2)
-            Button("go to Screen 3", action: viewModel.goToScreen3)
+            Button("go to Screen 3 (another TabBar)", action: viewModel.goToScreen3)
             Button("\(isTabBarPresented ? "Hide" : "Show") tabBar", action: {
                 isTabBarPresented.toggle()
             })
