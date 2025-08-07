@@ -10,4 +10,5 @@ import SwiftUI
 public extension UIDevice {
     static let changeTabNotification = Notification.Name(rawValue: "changeTabNotification")
     static let deviceDidShakeNotification = Notification.Name(rawValue: "deviceDidShakeNotification")
+    static let homeLinkNotication = Notification.Name(rawValue: "homeLinkNotication")
 }

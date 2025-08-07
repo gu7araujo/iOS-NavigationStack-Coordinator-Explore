@@ -48,6 +48,22 @@ struct HomeCoordinatorView: View {
                         AnyView(cover)
                     }
                 })
+                .onReceive(NotificationCenter.default.publisher(for: UIDevice.homeLinkNotication)) { sender in
+                    guard let path = sender.object as? String else { return }
+                    switch path {
+                    case "/product":
+                        coordinator.push(page: .product)
+                    case "/product/settings":
+                        coordinator.push(page: .product)
+                        coordinator.navigateToSettings()
+                    case "/settings/sheet":
+                        coordinator.presentSettingsSheet()
+                    case "/settings/cover":
+                        coordinator.presentSettingsCover()
+                    default:
+                        debugPrint("Unhandled action: \(path)")
+                    }
+                }
         }
     }
 }

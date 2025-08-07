@@ -63,6 +63,19 @@ struct ExploreNavApp: App {
                 .onReceive(NotificationCenter.default.publisher(for: UIDevice.deviceDidShakeNotification)) { _ in
                     isPresentDebugView.toggle()
                 }
+                .onOpenURL { url in
+                    guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true), let action = components.host else { return }
+
+                    switch action {
+                    case "home":
+                        selectedTab = 0
+                        NotificationCenter.default.post(name: UIDevice.homeLinkNotication, object: components.path)
+                    case "menu":
+                        selectedTab = 1
+                    default:
+                        debugPrint("Unhandled action: \(action)")
+                    }
+                }
             }
             .debugSheet(isPresented: $isPresentDebugView, onDismiss: { // limitação: sheet global em cima de outras sheet
                 isPresentDebugView = false

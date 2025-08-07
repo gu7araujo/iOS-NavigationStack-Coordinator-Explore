@@ -30,6 +30,12 @@ struct HomeView: View {
             Button("change tab") {
                 NotificationCenter.default.post(name: UIDevice.changeTabNotification, object: nil)
             }
+
+            Button("change tab (Deep Link)") {
+                if let url = URL(string: "myapp://menu") {
+                    UIApplication.shared.open(url)
+                }
+            }
         }
     }
 }
