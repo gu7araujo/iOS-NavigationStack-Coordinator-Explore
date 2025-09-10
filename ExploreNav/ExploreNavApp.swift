@@ -77,7 +77,7 @@ struct ExploreNavApp: App {
                     }
                 }
             }
-            .debugSheet(isPresented: $isPresentDebugView, onDismiss: { // limitação: sheet global em cima de outras sheet
+            .debugSheet(isPresented: $isPresentDebugView, onDismiss: { // ❌ limitação: sheet global em cima de outras sheet
                 isPresentDebugView = false
             })
         }

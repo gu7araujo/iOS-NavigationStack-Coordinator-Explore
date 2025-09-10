@@ -31,7 +31,7 @@ public enum MenuCompositionRoot {
     }
 
     static func buildMenuScreen3View() -> some View {
-        MenuScreen3View()
+        MenuScreen3View() // ❌ limitação: TabView dentro de outra TabView
     }
 
     @ViewBuilder
