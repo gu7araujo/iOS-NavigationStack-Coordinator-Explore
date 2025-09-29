@@ -7,14 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B72248D82E33CD9300C241FF /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = B72248D72E33CD9300C241FF /* Home */; };
-		B72248DA2E33CD9300C241FF /* Menu in Frameworks */ = {isa = PBXBuildFile; productRef = B72248D92E33CD9300C241FF /* Menu */; };
-		B72248DE2E33CD9300C241FF /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = B72248DD2E33CD9300C241FF /* Shared */; };
+		B7C31BDD2E8AB9BB005E08D6 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = B7C31BDC2E8AB9BB005E08D6 /* Home */; };
+		B7C31BDF2E8AB9BE005E08D6 /* Menu in Frameworks */ = {isa = PBXBuildFile; productRef = B7C31BDE2E8AB9BE005E08D6 /* Menu */; };
+		B7C31C092E8ABBE8005E08D6 /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = B7C31C082E8ABBE8005E08D6 /* Shared */; };
+		B7C31C0A2E8ABBE8005E08D6 /* Shared in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B7C31C082E8ABBE8005E08D6 /* Shared */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B7DFA94E2E8AB4FE00C23B6C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B7C31C0A2E8ABBE8005E08D6 /* Shared in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B749BE192E329D800001C63C /* ModulesLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ModulesLibrary; sourceTree = "<group>"; };
 		B765579D2D3D4ADB00D4EFCE /* ExploreNav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExploreNav.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7C31BFB2E8ABAB0005E08D6 /* SharedLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SharedLibrary; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -43,9 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B72248DE2E33CD9300C241FF /* Shared in Frameworks */,
-				B72248D82E33CD9300C241FF /* Home in Frameworks */,
-				B72248DA2E33CD9300C241FF /* Menu in Frameworks */,
+				B7C31BDD2E8AB9BB005E08D6 /* Home in Frameworks */,
+				B7C31BDF2E8AB9BE005E08D6 /* Menu in Frameworks */,
+				B7C31C092E8ABBE8005E08D6 /* Shared in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,8 +71,10 @@
 		B76557942D3D4ADB00D4EFCE = {
 			isa = PBXGroup;
 			children = (
+				B7C31BFB2E8ABAB0005E08D6 /* SharedLibrary */,
 				B749BE192E329D800001C63C /* ModulesLibrary */,
 				B765579F2D3D4ADB00D4EFCE /* ExploreNav */,
+				B7DFA94A2E8AB4FE00C23B6C /* Frameworks */,
 				B765579E2D3D4ADB00D4EFCE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,6 +87,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B7DFA94A2E8AB4FE00C23B6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,6 +104,7 @@
 				B76557992D3D4ADB00D4EFCE /* Sources */,
 				B765579A2D3D4ADB00D4EFCE /* Frameworks */,
 				B765579B2D3D4ADB00D4EFCE /* Resources */,
+				B7DFA94E2E8AB4FE00C23B6C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -89,9 +115,9 @@
 			);
 			name = ExploreNav;
 			packageProductDependencies = (
-				B72248D72E33CD9300C241FF /* Home */,
-				B72248D92E33CD9300C241FF /* Menu */,
-				B72248DD2E33CD9300C241FF /* Shared */,
+				B7C31BDC2E8AB9BB005E08D6 /* Home */,
+				B7C31BDE2E8AB9BE005E08D6 /* Menu */,
+				B7C31C082E8ABBE8005E08D6 /* Shared */,
 			);
 			productName = ExploreNav;
 			productReference = B765579D2D3D4ADB00D4EFCE /* ExploreNav.app */;
@@ -122,7 +148,6 @@
 			mainGroup = B76557942D3D4ADB00D4EFCE;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				B72248D62E33CD9300C241FF /* XCLocalSwiftPackageReference "ModulesLibrary" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B765579E2D3D4ADB00D4EFCE /* Products */;
@@ -359,23 +384,16 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		B72248D62E33CD9300C241FF /* XCLocalSwiftPackageReference "ModulesLibrary" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ModulesLibrary;
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		B72248D72E33CD9300C241FF /* Home */ = {
+		B7C31BDC2E8AB9BB005E08D6 /* Home */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Home;
 		};
-		B72248D92E33CD9300C241FF /* Menu */ = {
+		B7C31BDE2E8AB9BE005E08D6 /* Menu */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Menu;
 		};
-		B72248DD2E33CD9300C241FF /* Shared */ = {
+		B7C31C082E8ABBE8005E08D6 /* Shared */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Shared;
 		};

@@ -5,7 +5,6 @@
 //  Created by Gustavo Araujo Santos on 8/4/25.
 //
 
-
 import SwiftUI
 
 struct MenuScreen3View: View {

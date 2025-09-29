@@ -28,6 +28,7 @@ struct MenuView: View {
             Button("\(isTabBarPresented ? "Hide" : "Show") tabBar", action: {
                 isTabBarPresented.toggle()
             })
+            Text(Session.shared.name ?? "No name")
         }
         .toolbar(isTabBarPresented ? .visible : .hidden, for: .tabBar)
     }

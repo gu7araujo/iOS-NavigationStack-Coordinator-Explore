@@ -36,6 +36,8 @@ struct HomeView: View {
                     UIApplication.shared.open(url)
                 }
             }
+
+            Text(Session.shared.name ?? "No name")
         }
     }
 }

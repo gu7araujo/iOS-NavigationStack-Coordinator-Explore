@@ -7,13 +7,12 @@ let package = Package(
     name: "ModulesLibrary",
     platforms: [.iOS(.v17)],
     products: [
-        .library(name: "Shared", targets: ["Shared"]),
         .library(name: "Home", targets: ["Home"]),
         .library(name: "Menu", targets: ["Menu"])
     ],
+    dependencies: [.package(path: "../SharedLibrary")],
     targets: [
-        .target(name: "Shared"), .testTarget(name: "SharedTests", dependencies: ["Shared"]),
-        .target(name: "Home", dependencies: ["Shared"]), .testTarget(name: "HomeTests", dependencies: ["Home"]),
-        .target(name: "Menu", dependencies: ["Shared"]), .testTarget(name: "MenuTests", dependencies: ["Menu"]),
+        .target(name: "Home", dependencies: [.product(name: "Shared", package: "SharedLibrary")]), .testTarget(name: "HomeTests", dependencies: ["Home"]),
+        .target(name: "Menu", dependencies: [.product(name: "Shared", package: "SharedLibrary")]), .testTarget(name: "MenuTests", dependencies: ["Menu"]),
     ]
 )

@@ -36,6 +36,8 @@ struct ExploreNavApp: App {
 
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
+
+        Session.shared.name = "Gus"
     }
 
     var body: some Scene {
