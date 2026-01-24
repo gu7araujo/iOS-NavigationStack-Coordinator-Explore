@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-//public protocol PagesProtocol: Hashable, Identifiable {}
-
 public protocol CoordinatorProtocol {
     associatedtype Page: Hashable, Identifiable
 
@@ -20,17 +18,3 @@ public protocol CoordinatorProtocol {
     func pop()
     func reset()
 }
-
-//public extension CoordinatorProtocol {
-//    mutating func push(page: Page) {
-//        path.append(page)
-//    }
-//
-//    mutating func pop() {
-//        path.removeLast()
-//    }
-//
-//    mutating func reset() {
-//        path.removeLast(path.count)
-//    }
-//}
